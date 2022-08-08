@@ -1,0 +1,36 @@
+.teclado {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  max-height: 100px;
+  max-width: 500px;
+}
+
+.tecladoFila {
+  flex-grow: 1;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+
+}
+
+.tecla {
+  flex-grow: 4;
+  background-color: #767679;
+  color: #fff;
+  font-weight: bold;
+  border-color: transparent;
+  border-radius: 5px;
+  margin: 4px 2px;
+  height: 47px;
+  width: 56px;
+}
+
+.tecla:hover{
+  transition: all 0.1s linear;
+  filter: opacity(75%);
+}
+
+.enter {
+  flex-grow: 2;
+}

@@ -2,23 +2,37 @@
 <html>
 
 <head>
-  <title>Prueba de Javascript</title>
-  <!-- Fuente IMB Plex Sans -->
-  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <title>WORDTEC</title>
+  <!-- Fuente roboto-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="./styles/header.css">
+  <link rel="stylesheet" type="text/css" href="./styles/tablero.css">
+  <link rel="stylesheet" type="text/css" href="./styles/teclado.css">
 </head>
 
 <body>
-  <header class = "header">
-    <button class = "help" >
-      <a href="./ayuda.html">?</a></button>
-    <h2>WORDLE 2.0</h2>
-    <button>📊</button>
-    <button>⚙</button>
+  <header>
+    <div class="header-container">
+      <nav>
+        <ul class="header-menu">
+          <li>
+            <a href="./#">?</a></button>
+          </li>
+          <li>
+            WORDTEC
+          </li>
+          <li>
+            <a href="./#" id="stats-btn">📊</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
   </header>
-
-  <div class="contenedor">
-    <div class="tablero">
+  <main class="contenedor">
+    <section class=" tablero">
       <div class="filaTablero">
         <div id="cuadro_0_0" class="cuadroTablero"></div>
         <div id="cuadro_0_1" class="cuadroTablero"></div>
@@ -54,9 +68,15 @@
         <div id="cuadro_4_3" class="cuadroTablero"></div>
         <div id="cuadro_4_4" class="cuadroTablero"></div>
       </div>
-    </div>
-
-    <div class="teclado">
+      <div class="filaTablero">
+        <div id="cuadro_5_0" class="cuadroTablero"></div>
+        <div id="cuadro_5_1" class="cuadroTablero"></div>
+        <div id="cuadro_5_2" class="cuadroTablero"></div>
+        <div id="cuadro_5_3" class="cuadroTablero"></div>
+        <div id="cuadro_5_4" class="cuadroTablero"></div>
+      </div>
+    </section>
+    <section class="teclado">
       <div class="tecladoFila">
         <button id="letraQ" class='tecla' onclick="letra('Q', 'letraQ')">Q</button>
         <button id="letraW" class='tecla' onclick="letra('W', 'letraW')">W</button>
@@ -92,11 +112,12 @@
         <button id="letraM" class='tecla' onclick="letra('M', 'letraM')">M</button>
         <button id="borrar" class='tecla enter' onclick="borrar()">Borrar</button>
       </div>
-    </div>
-
-  </div>
-  <script src="main.js"></script>
-  <script src="listapalabras.js"></script>
+    </section>
+  </main>
+  <script src="./js/main.js"></script>
+  <script src="./js/modal/modalController.js"></script>
+  <script src="./js/statsModal.js"></script>
+  <script src="./js/listapalabras.js"></script>
 </body>
 
 </html>
