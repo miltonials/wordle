@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Prueba de Javascript</title>
+  <!-- Fuente IMB Plex Sans -->
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+  <header class = "header">
+    <button class = "help" >
+      <a href="./ayuda.html">?</a></button>
+    <h2>WORDLE 2.0</h2>
+    <button>📊</button>
+    <button>⚙</button>
+  </header>
+
+  <div class="contenedor">
+    <div class="tablero">
+      <div class="filaTablero">
+        <div id="cuadro_0_0" class="cuadroTablero"></div>
+        <div id="cuadro_0_1" class="cuadroTablero"></div>
+        <div id="cuadro_0_2" class="cuadroTablero"></div>
+        <div id="cuadro_0_3" class="cuadroTablero"></div>
+        <div id="cuadro_0_4" class="cuadroTablero"></div>
+      </div>
+      <div class="filaTablero">
+        <div id="cuadro_1_0" class="cuadroTablero"></div>
+        <div id="cuadro_1_1" class="cuadroTablero"></div>
+        <div id="cuadro_1_2" class="cuadroTablero"></div>
+        <div id="cuadro_1_3" class="cuadroTablero"></div>
+        <div id="cuadro_1_4" class="cuadroTablero"></div>
+      </div>
+      <div class="filaTablero">
+        <div id="cuadro_2_0" class="cuadroTablero"></div>
+        <div id="cuadro_2_1" class="cuadroTablero"></div>
+        <div id="cuadro_2_2" class="cuadroTablero"></div>
+        <div id="cuadro_2_3" class="cuadroTablero"></div>
+        <div id="cuadro_2_4" class="cuadroTablero"></div>
+      </div>
+      <div class="filaTablero">
+        <div id="cuadro_3_0" class="cuadroTablero"></div>
+        <div id="cuadro_3_1" class="cuadroTablero"></div>
+        <div id="cuadro_3_2" class="cuadroTablero"></div>
+        <div id="cuadro_3_3" class="cuadroTablero"></div>
+        <div id="cuadro_3_4" class="cuadroTablero"></div>
+      </div>
+      <div class="filaTablero">
+        <div id="cuadro_4_0" class="cuadroTablero"></div>
+        <div id="cuadro_4_1" class="cuadroTablero"></div>
+        <div id="cuadro_4_2" class="cuadroTablero"></div>
+        <div id="cuadro_4_3" class="cuadroTablero"></div>
+        <div id="cuadro_4_4" class="cuadroTablero"></div>
+      </div>
+    </div>
+
+    <div class="teclado">
+      <div class="tecladoFila">
+        <button id="letraQ" class='tecla' onclick="letra('Q', 'letraQ')">Q</button>
+        <button id="letraW" class='tecla' onclick="letra('W', 'letraW')">W</button>
+        <button id="letraE" class='tecla' onclick="letra('E', 'letraE')">E</button>
+        <button id="letraR" class='tecla' onclick="letra('R', 'letraR')">R</button>
+        <button id="letraT" class='tecla' onclick="letra('T', 'letraT')">T</button>
+        <button id="letraY" class='tecla' onclick="letra('Y', 'letraY')">Y</button>
+        <button id="letraU" class='tecla' onclick="letra('U', 'letraU')">U</button>
+        <button id="letraI" class='tecla' onclick="letra('I', 'letraI')">I</button>
+        <button id="letraO" class='tecla' onclick="letra('O', 'letraO')">O</button>
+        <button id="letraP" class='tecla' onclick="letra('P', 'letraP')">P</button>
+      </div>
+      <div class="tecladoFila">
+        <button id="letraA" class='tecla' onclick="letra('A', 'letraA')">A</button>
+        <button id="letraS" class='tecla' onclick="letra('S', 'letraS')">S</button>
+        <button id="letraD" class='tecla' onclick="letra('D', 'letraD')">D</button>
+        <button id="letraF" class='tecla' onclick="letra('F', 'letraF')">F</button>
+        <button id="letraG" class='tecla' onclick="letra('G', 'letraG')">G</button>
+        <button id="letraH" class='tecla' onclick="letra('H', 'letraH')">H</button>
+        <button id="letraJ" class='tecla' onclick="letra('J', 'letraJ')">J</button>
+        <button id="letraK" class='tecla' onclick="letra('K', 'letraK')">K</button>
+        <button id="letraL" class='tecla' onclick="letra('L', 'letraL')">L</button>
+        <button id="letraÑ" class='tecla' onclick="letra('Ñ', 'letraÑ')">Ñ</button>
+      </div>
+      <div class="tecladoFila">
+        <button id="enter" class='tecla enter' onclick="">Enter</button>
+        <button id="letraZ" class='tecla' onclick="letra('Z', 'letraZ')">Z</button>
+        <button id="letraX" class='tecla' onclick="letra('X', 'letraX')">X</button>
+        <button id="letraC" class='tecla' onclick="letra('C', 'letraC')">C</button>
+        <button id="letraV" class='tecla' onclick="letra('V', 'letraV')">V</button>
+        <button id="letraB" class='tecla' onclick="letra('B', 'letraB')">B</button>
+        <button id="letraN" class='tecla' onclick="letra('N', 'letraN')">N</button>
+        <button id="letraM" class='tecla' onclick="letra('M', 'letraM')">M</button>
+        <button id="borrar" class='tecla enter' onclick="borrar()">Borrar</button>
+      </div>
+    </div>
+
+  </div>
+  <script src="main.js"></script>
+  <script src="listapalabras.js"></script>
+</body>
+
+</html>
