@@ -5,7 +5,7 @@ letra_actual = {
   columna: 0
 }
 
-num = Math.random()
+num = Math.floor(Math.random() * 1000) % 855;
 numRando = num 
 console.log(numRando)
 
@@ -74,7 +74,8 @@ function enter() {
       // + document.getElementById("cuadro_" + letra_actual.fila + "_" + 1).innerHTML + document.getElementById("cuadro_" + letra_actual.fila + "_" + 2).innerHTML + document.getElementById("cuadro_" + letra_actual.fila + "_" + 3).innerHTML + document.getElementById("cuadro_" + letra_actual.fila + "_" + 4).innerHTML
       console.log(7)
       console.log(palabraActual2)
-      if (listapalabras.includes(palabraActual2)) {
+      console.log(listapalabras[numRando])
+      if (listapalabras[numRando] == palabraActual2) {
         document.getElementById("cuadro_" + letra_actual.fila + "_" + 0).style.backgroundColor = 'green'
         document.getElementById("cuadro_" + letra_actual.fila + "_" + 1).style.backgroundColor = 'green'
         document.getElementById("cuadro_" + letra_actual.fila + "_" + 2).style.backgroundColor = 'green'
