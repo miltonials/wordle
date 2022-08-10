@@ -4,9 +4,7 @@ letra_actual = {
   fila: 0,
   columna: 0
 }
-
-num = Math.floor(Math.random() * 1000) % 855;
-numRando = num 
+numRando = Math.floor(Math.random() * 1000) % 855;
 console.log(numRando)
 
 
@@ -82,6 +80,7 @@ function enter() {
         document.getElementById("cuadro_" + letra_actual.fila + "_" + 3).style.backgroundColor = 'green'
         document.getElementById("cuadro_" + letra_actual.fila + "_" + 4).style.backgroundColor = 'green'
         console.log('Correcto')
+        setTimeout(numRando = Math.floor(Math.random() * 1000) % 855, 1000*60*5);
       }
       letra_actual.fila += 1;
       letra_actual.columna = 0;
