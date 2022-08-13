@@ -65,7 +65,7 @@ timer();
 
 function ponerLetra(letter) {
   if (letra_actual.fila < 6 && !palabraAdivinada) {
-    if (letra_actual.columna <= 4) {
+    if (letra_actual.columna < 5) {
       cuadro = document.getElementById("cuadro_" + letra_actual.fila + "_" + letra_actual.columna)
       cuadro.innerHTML = '<p class="letraTablero">' + letter + "</p>";
       letra_actual.columna += 1;
@@ -89,7 +89,6 @@ function borrar() {
 }
 
 function enter() {
-  document.onfocus
   if (palabraAdivinada) {
     stats.click()
   }
