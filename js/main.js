@@ -11,6 +11,7 @@ letra_actual = {
 
 let victorias = 0
 let derrotas = 0
+let intentos = 0
 let matrizDeJuego = ""
 
 //Se selecciona una palabra aleatoria y se formatea el array en mayúsculas
@@ -88,7 +89,11 @@ function borrar() {
 }
 
 function enter() {
-  if (letra_actual.fila > 6) {
+  document.onfocus
+  if (palabraAdivinada) {
+    stats.click()
+  }
+  else if (letra_actual.fila > 6) {
     printModal(`<p class="alerts">No hay más filas</p>`);
   }
   else if (letra_actual.columna == 5) {
@@ -131,6 +136,10 @@ function enter() {
 
       letra_actual.fila += 1;
       letra_actual.columna = 0;
+
+      if (letra_actual.fila == 6) {
+        stats.click()
+      }
     }
     else {
       printModal(`<p class="alerts">La palabra no está en la lista</p>`);
@@ -145,7 +154,7 @@ function enter() {
  * Función que reincia la palabra en juego, el tablero y las estadísticas
  */
 function reiniciar() {
-  if (!(letra_actual.fila == 0 && letra_actual.columna == 0) || letra_actual.columna!=0) {
+  if (!(letra_actual.fila == 0 && letra_actual.columna == 0) || letra_actual.columna != 0) {
     while (letra_actual.fila >= 0) {
       if (letra_actual.fila != 0) {
         letra_actual.fila--
@@ -179,3 +188,18 @@ function reiniciar() {
   matrizDeJuego = ""
   console.log(palabraActual)
 }
+
+/**
+ * Eventos del teclado
+ */
+window.addEventListener("keydown", (keyData) => {
+  if ((keyData.keyCode >= 65 && keyData.keyCode <= 90) || keyData.keyCode == 192) {
+    ponerLetra(keyData.key.toUpperCase())
+  }
+  else if (keyData.keyCode == 13) {
+    enter()
+  }
+  else if (keyData.keyCode == 8) {
+    borrar()
+  }
+})

@@ -23,6 +23,7 @@
   min-width: 47px;
   cursor: pointer;
   border: 3px solid transparent;
+  outline: none;
 }
 
 .tecla:hover{
@@ -33,6 +34,7 @@
 .tecla:focus {
   transition: all 0.4s linear;
   border: 3px solid var(--default-shadow-color);
+  filter: opacity(50%);
 }
 
 .enter {
