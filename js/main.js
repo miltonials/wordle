@@ -109,6 +109,7 @@ function enter() {
       palabraAdivinada = true;
       matrizDeJuego += "<br>"
       for (let i = 0; i < 5; i++) {
+        let letraTeclado = document.getElementById("letra" + letraCuadro)
         cuadro = document.getElementById("cuadro_" + letra_actual.fila + "_" + (i))
         letraCuadro = cuadro.innerText
         if (letraCuadro == palabraActual.charAt(i)) {
@@ -118,13 +119,17 @@ function enter() {
         }
         else if (palabraActual.indexOf(letraCuadro) != -1) {
           cuadro.style.backgroundColor = "var(--present-letter)"
-          document.getElementById("letra" + letraCuadro).style.backgroundColor = "var(--present-letter)"
+          if (letraTeclado.style.backgroundColor != "var(--correct-letter)") {
+            document.getElementById("letra" + letraCuadro).style.backgroundColor = "var(--present-letter)"
+          }
           palabraAdivinada = false
           matrizDeJuego += "🟨"
         }
         else {
           cuadro.style.backgroundColor = "var(--missing-letter)"
-          document.getElementById("letra" + letraCuadro).style.backgroundColor = "var(--missing-letter)"
+          if (letraTeclado.style.backgroundColor != "var(--correct-letter)") {
+            document.getElementById("letra" + letraCuadro).style.backgroundColor = "var(--missing-letter)"
+          }
           palabraAdivinada = false
           matrizDeJuego += "⬛"
         }
