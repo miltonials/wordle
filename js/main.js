@@ -1,15 +1,27 @@
-// var h1 = document.getElementsByTagName('h1')[0];
-var sec = 0;
-var min = 0;
-var hrs = 0;
-var t;
+// let h1 = document.getElementsByTagName('h1')[0];
+let sec = 0;
+let min = 0;
+let hrs = 0;
+let t;
 
 letra_actual = {
   fila: 0,
   columna: 0
 }
+
+let victorias = 0
+let derrotas = 0
+let matrizDeJuego = ""
+
+//Se selecciona una palabra aleatoria y se formatea el array en mayúsculas
 numRando = Math.floor(Math.random() * 1000) % 855;
-console.log(numRando)
+listapalabras.forEach((element) => {
+  listapalabras[listapalabras.indexOf(element)] = element.toUpperCase()
+});
+
+let palabraActual = listapalabras[numRando]
+let palabraAdivinada = false
+console.log(palabraActual)
 
 
 function tick() {
@@ -23,6 +35,7 @@ function tick() {
     }
   }
 }
+
 function add() {
   tick();
   // h1.textContent = (hrs > 9 ? hrs : "0" + hrs)
@@ -49,18 +62,11 @@ timer();
 
 // timeNumRando = setTimeout(numRando = Math.floor(Math.random() * 1000) % 855, 1000*60*5);
 
-function letra(letter, id) {
-  // console.log(listapalabras)
-  if (letra_actual.fila < 5) {
+function ponerLetra(letter, id) {
+  if (letra_actual.fila < 6 && !palabraAdivinada) {
     if (letra_actual.columna <= 4) {
-      console.log("cuadro_" + letra_actual.fila + "_" + letra_actual.columna)
       cuadro = document.getElementById("cuadro_" + letra_actual.fila + "_" + letra_actual.columna)
       cuadro.innerHTML = '<p class="letraTablero">' + letter + "</p>";
-
-      boton = document.getElementById(id)
-      boton.style.color = 'red'
-      boton.style.backgroundColor = 'gray'
-
       letra_actual.columna += 1;
     } else {
       console.log('No hay más espacio')
@@ -71,70 +77,113 @@ function letra(letter, id) {
 }
 
 
-  function borrar() {
-    if (letra_actual.columna > 0 && letra_actual.columna <= 5) {
-      letra_actual.columna -= 1;
-      cuadro = document.getElementById("cuadro_" + letra_actual.fila + "_" + letra_actual.columna)
-      letraABorrar = cuadro.innerHTML
-      index = letraABorrar.indexOf(">")
-      letraABorrar = letraABorrar.slice(index + 1, letraABorrar.length - 4)
-      // console.log(letraABorrar)
-      boton = document.getElementById("letra" + letraABorrar)
-      boton.style.color = '#fff'
-      boton.style.backgroundColor = '#767679'
-      boton.style.border = 'transparent'
-      cuadro.innerHTML = '';
-    } else {
-      console.log('No hay más letras')
-    }
+function borrar() {
+  if (letra_actual.columna > 0 && letra_actual.columna <= 5) {
+    letra_actual.columna -= 1;
+    cuadro = document.getElementById("cuadro_" + letra_actual.fila + "_" + letra_actual.columna)
+    letraABorrar = cuadro.innerHTML
+    index = letraABorrar.indexOf(">")
+    letraABorrar = letraABorrar.slice(index + 1, letraABorrar.length - 4)
+    // console.log(letraABorrar)
+    boton = document.getElementById("letra" + letraABorrar)
+    boton.style.color = '#fff'
+    boton.style.backgroundColor = '#767679'
+    boton.style.border = 'transparent'
+    cuadro.innerHTML = '';
+  } else {
+    console.log('No hay más letras')
   }
+}
 
-  function enter() {
-    if (letra_actual.fila > 4) {
-      console.log('No hay más filas')
+function enter() {
+  if (letra_actual.fila > 6) {
+    printModal(`<p class="alerts">No hay más filas</p>`);
+  }
+  else if (letra_actual.columna == 5) {
+    let palabraEscrita = ""
+
+    for (let i = 0; i < 5; i++) {
+      cuadro = document.getElementById("cuadro_" + letra_actual.fila + "_" + (i))
+      letraCuadro = cuadro.innerText
+      palabraEscrita += letraCuadro
+    }
+
+    if (listapalabras.indexOf(palabraEscrita) >= 0) {
+      palabraAdivinada = true;
+      matrizDeJuego += "<br>"
+      for (let i = 0; i < 5; i++) {
+        cuadro = document.getElementById("cuadro_" + letra_actual.fila + "_" + (i))
+        letraCuadro = cuadro.innerText
+        if (letraCuadro == palabraActual.charAt(i)) {
+          cuadro.style.backgroundColor = "#f5793a"
+          document.getElementById("letra" + letraCuadro).style.backgroundColor = "#f5793a"
+          matrizDeJuego += "🟧"
+        }
+        else if (palabraActual.indexOf(letraCuadro) != -1) {
+          cuadro.style.backgroundColor = "#85c0f9"
+          document.getElementById("letra" + letraCuadro).style.backgroundColor = "#85c0f9"
+          palabraAdivinada = false
+          matrizDeJuego += "🟦"
+        }
+        else {
+          cuadro.style.backgroundColor = "#3a3a3c"
+          document.getElementById("letra" + letraCuadro).style.backgroundColor = "#3a3a3c"
+          palabraAdivinada = false
+          matrizDeJuego += "⬛"
+        }
+      }
+      if (palabraAdivinada) {
+        stats.click()
+      }
+      matrizDeJuego += "</br>"
+
+      letra_actual.fila += 1;
+      letra_actual.columna = 0;
     }
     else {
-      console.log(letra_actual.columna)
-      if (letra_actual.columna == 5) {
-        // palabraActual =  "PULPO"
-        palabraActual = document.getElementById("cuadro_" + letra_actual.fila + "_" + 0).innerHTML
-        index = palabraActual.indexOf(">")
-        palabraActual2 = palabraActual.slice(index + 1, palabraActual.length - 4)
-        palabraActual = document.getElementById("cuadro_" + letra_actual.fila + "_" + 1).innerHTML
-        index = palabraActual.indexOf(">")
-        palabraActual2 += palabraActual.slice(index + 1, palabraActual.length - 4)
-        palabraActual = document.getElementById("cuadro_" + letra_actual.fila + "_" + 2).innerHTML
-        index = palabraActual.indexOf(">")
-        palabraActual2 += palabraActual.slice(index + 1, palabraActual.length - 4)
-        palabraActual = document.getElementById("cuadro_" + letra_actual.fila + "_" + 3).innerHTML
-        index = palabraActual.indexOf(">")
-        palabraActual2 += palabraActual.slice(index + 1, palabraActual.length - 4)
-        palabraActual = document.getElementById("cuadro_" + letra_actual.fila + "_" + 4).innerHTML
-        index = palabraActual.indexOf(">")
-        palabraActual2 += palabraActual.slice(index + 1, palabraActual.length - 4)
-        palabraActual2 = palabraActual2.toLowerCase()
-        // + document.getElementById("cuadro_" + letra_actual.fila + "_" + 1).innerHTML + document.getElementById("cuadro_" + letra_actual.fila + "_" + 2).innerHTML + document.getElementById("cuadro_" + letra_actual.fila + "_" + 3).innerHTML + document.getElementById("cuadro_" + letra_actual.fila + "_" + 4).innerHTML
-        console.log(7)
-        console.log(palabraActual2)
-        console.log(listapalabras[min])
-        console.log(min)
-        if (listapalabras[numRando] == palabraActual2) {
-          document.getElementById("cuadro_" + letra_actual.fila + "_" + 0).style.backgroundColor = 'green'
-          document.getElementById("cuadro_" + letra_actual.fila + "_" + 1).style.backgroundColor = 'green'
-          document.getElementById("cuadro_" + letra_actual.fila + "_" + 2).style.backgroundColor = 'green'
-          document.getElementById("cuadro_" + letra_actual.fila + "_" + 3).style.backgroundColor = 'green'
-          document.getElementById("cuadro_" + letra_actual.fila + "_" + 4).style.backgroundColor = 'green'
-          console.log('Correcto')
-          // setTimeout(numRando = Math.floor(Math.random() * 1000) % 855, 1000*60*5);
+      printModal(`<p class="alerts">La palabra no está en la lista</p>`);
+    }
+  }
+  else {
+    printModal(`<p class="alerts">No hay sufientes letras</p>`);
+  }
+}
+
+/**
+ * Función que reincia la palabra en juego, el tablero y las estadísticas
+ */
+function reiniciar() {
+  if (!(letra_actual.fila == 0 && letra_actual.columna == 0) || letra_actual.columna!=0) {
+    while (letra_actual.fila >= 0) {
+      if (letra_actual.fila != 0) {
+        letra_actual.fila--
+        for (let i = 0; i < 5; i++) {
+          cuadroId = "cuadro_" + letra_actual.fila + "_" + i
+          cuadro = document.getElementById(cuadroId)
+          cuadro.style.backgroundColor = "#121213"
+
+          teclaId = "letra" + cuadro.firstChild.innerText
+          tecla = document.getElementById(teclaId)
+          tecla.style.backgroundColor = "#767679"
+
+          cuadro.firstChild.remove()
         }
-        letra_actual.fila += 1;
-        letra_actual.columna = 0;
       }
       else {
-        console.log('No hay 5 letras en la fila')
+        break
       }
     }
   }
 
+  letra_actual.fila = 0;
+  letra_actual.columna = 0;
 
-// console.log(listapalabras)
+  numRando = Math.floor(Math.random() * 1000) % 855;
+
+  palabraActual = listapalabras[numRando]
+  palabraAdivinada = false
+  victorias = 0
+  derrotas = 0
+  matrizDeJuego = ""
+  console.log(palabraActual)
+}

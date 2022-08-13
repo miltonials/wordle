@@ -22,6 +22,7 @@
   margin: 4px 2px;
   height: 56px;
   min-width: 47px;
+  cursor: pointer;
 }
 
 .tecla:hover{

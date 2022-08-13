@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="./styles/header.css">
   <link rel="stylesheet" type="text/css" href="./styles/tablero.css">
   <link rel="stylesheet" type="text/css" href="./styles/teclado.css">
+  <link rel="stylesheet" type="text/css" href="./styles/stats.css">
 </head>
 
 <body>
@@ -77,46 +78,47 @@
     </section>
     <section class="teclado">
       <div class="tecladoFila">
-        <button id="letraQ" class='tecla' onclick="letra('Q', 'letraQ')">Q</button>
-        <button id="letraW" class='tecla' onclick="letra('W', 'letraW')">W</button>
-        <button id="letraE" class='tecla' onclick="letra('E', 'letraE')">E</button>
-        <button id="letraR" class='tecla' onclick="letra('R', 'letraR')">R</button>
-        <button id="letraT" class='tecla' onclick="letra('T', 'letraT')">T</button>
-        <button id="letraY" class='tecla' onclick="letra('Y', 'letraY')">Y</button>
-        <button id="letraU" class='tecla' onclick="letra('U', 'letraU')">U</button>
-        <button id="letraI" class='tecla' onclick="letra('I', 'letraI')">I</button>
-        <button id="letraO" class='tecla' onclick="letra('O', 'letraO')">O</button>
-        <button id="letraP" class='tecla' onclick="letra('P', 'letraP')">P</button>
+        <button id="letraQ" class='tecla' onclick="ponerLetra('Q', 'letraQ')">Q</button>
+        <button id="letraW" class='tecla' onclick="ponerLetra('W', 'letraW')">W</button>
+        <button id="letraE" class='tecla' onclick="ponerLetra('E', 'letraE')">E</button>
+        <button id="letraR" class='tecla' onclick="ponerLetra('R', 'letraR')">R</button>
+        <button id="letraT" class='tecla' onclick="ponerLetra('T', 'letraT')">T</button>
+        <button id="letraY" class='tecla' onclick="ponerLetra('Y', 'letraY')">Y</button>
+        <button id="letraU" class='tecla' onclick="ponerLetra('U', 'letraU')">U</button>
+        <button id="letraI" class='tecla' onclick="ponerLetra('I', 'letraI')">I</button>
+        <button id="letraO" class='tecla' onclick="ponerLetra('O', 'letraO')">O</button>
+        <button id="letraP" class='tecla' onclick="ponerLetra('P', 'letraP')">P</button>
       </div>
       <div class="tecladoFila">
-        <button id="letraA" class='tecla' onclick="letra('A', 'letraA')">A</button>
-        <button id="letraS" class='tecla' onclick="letra('S', 'letraS')">S</button>
-        <button id="letraD" class='tecla' onclick="letra('D', 'letraD')">D</button>
-        <button id="letraF" class='tecla' onclick="letra('F', 'letraF')">F</button>
-        <button id="letraG" class='tecla' onclick="letra('G', 'letraG')">G</button>
-        <button id="letraH" class='tecla' onclick="letra('H', 'letraH')">H</button>
-        <button id="letraJ" class='tecla' onclick="letra('J', 'letraJ')">J</button>
-        <button id="letraK" class='tecla' onclick="letra('K', 'letraK')">K</button>
-        <button id="letraL" class='tecla' onclick="letra('L', 'letraL')">L</button>
-        <button id="letraÑ" class='tecla' onclick="letra('Ñ', 'letraÑ')">Ñ</button>
+        <button id="letraA" class='tecla' onclick="ponerLetra('A', 'letraA')">A</button>
+        <button id="letraS" class='tecla' onclick="ponerLetra('S', 'letraS')">S</button>
+        <button id="letraD" class='tecla' onclick="ponerLetra('D', 'letraD')">D</button>
+        <button id="letraF" class='tecla' onclick="ponerLetra('F', 'letraF')">F</button>
+        <button id="letraG" class='tecla' onclick="ponerLetra('G', 'letraG')">G</button>
+        <button id="letraH" class='tecla' onclick="ponerLetra('H', 'letraH')">H</button>
+        <button id="letraJ" class='tecla' onclick="ponerLetra('J', 'letraJ')">J</button>
+        <button id="letraK" class='tecla' onclick="ponerLetra('K', 'letraK')">K</button>
+        <button id="letraL" class='tecla' onclick="ponerLetra('L', 'letraL')">L</button>
+        <button id="letraÑ" class='tecla' onclick="ponerLetra('Ñ', 'letraÑ')">Ñ</button>
       </div>
       <div class="tecladoFila">
         <button id="enter" class='tecla enter' onclick="enter() ">Enter</button>
-        <button id="letraZ" class='tecla' onclick="letra('Z', 'letraZ')">Z</button>
-        <button id="letraX" class='tecla' onclick="letra('X', 'letraX')">X</button>
-        <button id="letraC" class='tecla' onclick="letra('C', 'letraC')">C</button>
-        <button id="letraV" class='tecla' onclick="letra('V', 'letraV')">V</button>
-        <button id="letraB" class='tecla' onclick="letra('B', 'letraB')">B</button>
-        <button id="letraN" class='tecla' onclick="letra('N', 'letraN')">N</button>
-        <button id="letraM" class='tecla' onclick="letra('M', 'letraM')">M</button>
+        <button id="letraZ" class='tecla' onclick="ponerLetra('Z', 'letraZ')">Z</button>
+        <button id="letraX" class='tecla' onclick="ponerLetra('X', 'letraX')">X</button>
+        <button id="letraC" class='tecla' onclick="ponerLetra('C', 'letraC')">C</button>
+        <button id="letraV" class='tecla' onclick="ponerLetra('V', 'letraV')">V</button>
+        <button id="letraB" class='tecla' onclick="ponerLetra('B', 'letraB')">B</button>
+        <button id="letraN" class='tecla' onclick="ponerLetra('N', 'letraN')">N</button>
+        <button id="letraM" class='tecla' onclick="ponerLetra('M', 'letraM')">M</button>
         <button id="borrar" class='tecla enter' onclick="borrar()">Borrar</button>
+        <button id="reiniciar" class='tecla enter' onclick="reiniciar()">reiniciar</button>
       </div>
     </section>
   </main>
+  <script src="./js/listapalabras.js"></script>
   <script src="./js/main.js"></script>
   <script src="./js/modals/modalController.js"></script>
   <script src="./js/modals/myModals.js"></script>
-  <script src="./js/listapalabras.js"></script>
 </body>
 
 </html>
