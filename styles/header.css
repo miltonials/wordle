@@ -15,19 +15,10 @@ li {
 
 .header {
   display: flex;
-  font-size: 2rem;
   height: 50px;
+  font-size: 2rem;
   align-items: center;
   justify-content: center;
-}
-
-.navigation {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 1000px;
-  ;
-  min-width: 375px;
-  margin: 0 auto;
 }
 
 .header-menu {
