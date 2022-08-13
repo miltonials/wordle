@@ -13,21 +13,26 @@
 
 .tecla {
   flex-grow: 4;
-  background-color: #767679;
-  color: #fff;
+  background-color: var(--default-key-color);
+  color: var(--default-text-color);
   font-weight: bold;
   font-size: larger;
-  border-color: transparent;
   border-radius: 5px;
   margin: 4px 2px;
   height: 56px;
   min-width: 47px;
   cursor: pointer;
+  border: 3px solid transparent;
 }
 
 .tecla:hover{
   transition: all 0.3s linear;
   filter: opacity(50%);
+}
+
+.tecla:focus {
+  transition: all 0.4s linear;
+  border: 3px solid var(--default-shadow-color);
 }
 
 .enter {

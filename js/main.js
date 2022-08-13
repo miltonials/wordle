@@ -62,7 +62,7 @@ timer();
 
 // timeNumRando = setTimeout(numRando = Math.floor(Math.random() * 1000) % 855, 1000*60*5);
 
-function ponerLetra(letter, id) {
+function ponerLetra(letter) {
   if (letra_actual.fila < 6 && !palabraAdivinada) {
     if (letra_actual.columna <= 4) {
       cuadro = document.getElementById("cuadro_" + letra_actual.fila + "_" + letra_actual.columna)
@@ -81,15 +81,7 @@ function borrar() {
   if (letra_actual.columna > 0 && letra_actual.columna <= 5) {
     letra_actual.columna -= 1;
     cuadro = document.getElementById("cuadro_" + letra_actual.fila + "_" + letra_actual.columna)
-    letraABorrar = cuadro.innerHTML
-    index = letraABorrar.indexOf(">")
-    letraABorrar = letraABorrar.slice(index + 1, letraABorrar.length - 4)
-    // console.log(letraABorrar)
-    boton = document.getElementById("letra" + letraABorrar)
-    boton.style.color = '#fff'
-    boton.style.backgroundColor = '#767679'
-    boton.style.border = 'transparent'
-    cuadro.innerHTML = '';
+    cuadro.firstChild.remove()
   } else {
     console.log('No hay más letras')
   }
@@ -115,19 +107,19 @@ function enter() {
         cuadro = document.getElementById("cuadro_" + letra_actual.fila + "_" + (i))
         letraCuadro = cuadro.innerText
         if (letraCuadro == palabraActual.charAt(i)) {
-          cuadro.style.backgroundColor = "#f5793a"
-          document.getElementById("letra" + letraCuadro).style.backgroundColor = "#f5793a"
-          matrizDeJuego += "🟧"
+          cuadro.style.backgroundColor = "var(--correct-letter)"
+          document.getElementById("letra" + letraCuadro).style.backgroundColor = "var(--correct-letter)"
+          matrizDeJuego += "🟩"
         }
         else if (palabraActual.indexOf(letraCuadro) != -1) {
-          cuadro.style.backgroundColor = "#85c0f9"
-          document.getElementById("letra" + letraCuadro).style.backgroundColor = "#85c0f9"
+          cuadro.style.backgroundColor = "var(--present-letter)"
+          document.getElementById("letra" + letraCuadro).style.backgroundColor = "var(--present-letter)"
           palabraAdivinada = false
-          matrizDeJuego += "🟦"
+          matrizDeJuego += "🟨"
         }
         else {
-          cuadro.style.backgroundColor = "#3a3a3c"
-          document.getElementById("letra" + letraCuadro).style.backgroundColor = "#3a3a3c"
+          cuadro.style.backgroundColor = "var(--missing-letter)"
+          document.getElementById("letra" + letraCuadro).style.backgroundColor = "var(--missing-letter)"
           palabraAdivinada = false
           matrizDeJuego += "⬛"
         }
@@ -160,11 +152,11 @@ function reiniciar() {
         for (let i = 0; i < 5; i++) {
           cuadroId = "cuadro_" + letra_actual.fila + "_" + i
           cuadro = document.getElementById(cuadroId)
-          cuadro.style.backgroundColor = "#121213"
+          cuadro.style.backgroundColor = "var(--main-bg-color)"
 
           teclaId = "letra" + cuadro.firstChild.innerText
           tecla = document.getElementById(teclaId)
-          tecla.style.backgroundColor = "#767679"
+          tecla.style.backgroundColor = "var(--default-key-color)"
 
           cuadro.firstChild.remove()
         }

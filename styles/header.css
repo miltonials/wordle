@@ -1,9 +1,19 @@
+:root {
+  --main-bg-color: #121213;
+  --correct-letter: #6aaa64;
+  --present-letter: #c9b458;
+  --missing-letter: #3a3a3c;
+  --default-key-color: #767679;
+  --default-text-color: #fafafa;
+  --default-shadow-color: rgba(66, 153, 225, 0.6);
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   font-family: 'Segoe UI', Roboto, sans-serif;
-  background-color: #121213;
+  background-color: var(--main-bg-color);
   text-decoration: none;
   color: #ffffff;
 }
@@ -40,7 +50,7 @@ li {
 
 .header nav ul li:hover {
   background: #21272c;
-  transition: all 0.4s linear;
+  transition: all 0.2s linear;
 }
 
 #help-btn {
@@ -79,7 +89,7 @@ li {
 
 .content--modal {
   margin: auto;
-  background: #fff;
+  background: #fafafa;
   border-radius: 15px;
   padding: 30px;
 }
