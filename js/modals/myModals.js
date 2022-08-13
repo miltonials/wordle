@@ -11,6 +11,6 @@ stats.addEventListener("click", () => {
 
 help.addEventListener("click", () => {
   printModal(`
-    <video src = "../../static/howToPlay.mp4" alt = "¿Cómo jugar?" autoplay/>
+    <video src = "./static/howToPlay.mp4" alt = "¿Cómo jugar?" autoplay/>
   `);
 });
