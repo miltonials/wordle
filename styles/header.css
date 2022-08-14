@@ -64,32 +64,3 @@ li {
 #stats-btn {
   cursor: pointer;
 }
-
-/* MODAL CONTAINER*/
-.modal--container {
-  z-index: 5;
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  left: 0;
-  top: 0;
-  background: rgba(0, 0, 0, 0.363);
-  display: flex;
-}
-
-.modal--container::before {
-  content: "X";
-  position: absolute;
-  margin: 10px 10px 0 0;
-  top: 0;
-  right: 0;
-  opacity: 0.5;
-  font-size: 5rem;
-}
-
-.content--modal {
-  margin: auto;
-  background: #fafafa;
-  border-radius: 15px;
-  padding: 30px;
-}

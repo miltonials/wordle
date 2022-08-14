@@ -34,6 +34,6 @@
 
 .alerts {
   background-color: transparent;
-  color: #121213;
+  color: var(--default-text-color);
   font-size: 24px;
 }
