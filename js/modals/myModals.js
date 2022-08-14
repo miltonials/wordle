@@ -1,7 +1,10 @@
 const stats = document.getElementById("stats-btn");
 const help = document.getElementById("help-btn");
 
+// muestra las estadisticas
 stats.addEventListener("click", () => {
+  tiempoRestanteMin = 4-min;
+  tiempoRestanteSec = 60-sec;
   printModal(`
   <textarea id="matrix-txt" type="text">`+ "WORDTEC📲\n" + matrizDeJuego.replaceAll("</br>","\n").replaceAll("<br>","") + `</textarea>
   <section id="res-matrix" class="emoticons-container">`+ matrizDeJuego + `</section>
@@ -11,26 +14,26 @@ stats.addEventListener("click", () => {
   </h1>
   <div class="stats-general-view">
     <div class="game-counter">
-      <p>1 Jugadas</p>
+      <p>`+partidas+` Jugadas </p>
     </div>
     <div class="wins-counter">
-      <p>100% Victorias</p>
+      <p> `+((victorias/partidas)*100)+`% Victorias</p>
     </div>
   </div>
   <h1 class="stats-tittle">
     DISTRIBUCIÓN
   </h1>
   <div class="stats-distribution-view">
-    <p>1:</p>
-    <p>2:</p>
-    <p>3:</p>
-    <p>4:</p>
-    <p>5:</p>
-    <p>6:</p>
-    <p>X:</p>
+    <p>1:`+ganeFila1+`</p>
+    <p>2:`+ganeFila2+`</p>
+    <p>3:`+ganeFila3+`</p>
+    <p>4:`+ganeFila4+`</p>
+    <p>5:`+ganeFila5+`</p>
+    <p>6:`+ganeFila6+`</p>
+    <p>X:`+derrotas+`</p>
   </div>
 </section>
-<div>Siguiente palabra: </div>
+<div>Siguiente palabra: `+(4-min)+`:`+(60-sec)+`</div>
 <section class="social-networks">
   <button id="copy-to-share-btn">Compartir</button>
 </section>`
@@ -47,6 +50,7 @@ stats.addEventListener("click", () => {
   })
 });
 
+// muestra la ayuda
 help.addEventListener("click", () => {
   printModal(`
     <video src = "./static/howToPlay.mp4" alt = "¿Cómo jugar?" autoplay/>

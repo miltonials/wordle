@@ -52,7 +52,8 @@
   justify-content: space-between;
   align-content: center;
   height: 50px;
-  font-size: 25px;
+  font-size: 20px;
+  width: 100%;
 }
 
 .game-counter {

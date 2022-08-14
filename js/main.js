@@ -1,18 +1,29 @@
-// let h1 = document.getElementsByTagName('h1')[0];
+// Andy Porras 
+// Milton Barrera 
+// 2022
+
+//variables
 let sec = 0;
 let min = 0;
 let hrs = 0;
 let t;
+let victorias = 0
+let ganeFila1 = ""
+let ganeFila2 = ""
+let ganeFila3 = ""
+let ganeFila4 = ""
+let ganeFila5 = ""
+let ganeFila6 = ""
+let derrotas = ""
+let partidas = 0
+let intentos = 0
+let matrizDeJuego = ""
 
 letra_actual = {
   fila: 0,
   columna: 0
 }
 
-let victorias = 0
-let derrotas = 0
-let intentos = 0
-let matrizDeJuego = ""
 
 //Se selecciona una palabra aleatoria y se formatea el array en mayúsculas
 numRando = Math.floor(Math.random() * 1000) % 855;
@@ -26,6 +37,7 @@ let palabraAdivinada = false
 console.log(palabraActual)
 
 
+// temporizador
 function tick() {
   sec++;
   if (sec >= 60) {
@@ -37,7 +49,6 @@ function tick() {
     }
   }
 }
-
 function add() {
   tick();
   timer();
@@ -50,13 +61,13 @@ function timer() {
     hrs = 0;
     numRando = Math.floor(Math.random() * 1000) % 855;
     palabraActual = listapalabras[numRando]
-    console.log(numRando)
+    console.log(palabraActual)
     limpiar()
   }
 }
-
 timer();
 
+// coloca la letra en el tablero
 function ponerLetra(letter) {
   if (letra_actual.fila < 6 && !palabraAdivinada) {
     if (letra_actual.columna < 5) {
@@ -71,7 +82,7 @@ function ponerLetra(letter) {
   }
 }
 
-
+// borra la última letra del tablero
 function borrar() {
   if (letra_actual.columna > 0 && letra_actual.columna <= 5) {
     letra_actual.columna -= 1;
@@ -82,6 +93,8 @@ function borrar() {
   }
 }
 
+// validad que la palabra sea correcta, si no lo es, se pasa a la siguiente fila
+// si es correcta, se termina el juego
 function enter() {
   if (palabraAdivinada) {
     stats.click()
@@ -128,6 +141,26 @@ function enter() {
         }
       }
       if (palabraAdivinada) {
+        if (letra_actual.fila == 0) {
+          ganeFila1 += "🟩"
+        }
+        else if (letra_actual.fila == 1) {
+          ganeFila2 += "🟩"
+        }
+        else if (letra_actual.fila == 2) {
+          ganeFila3 += "🟩"
+        }
+        else if (letra_actual.fila == 3) {
+          ganeFila4 += "🟩"
+        }
+        else if (letra_actual.fila == 4) {
+          ganeFila5 += "🟩"
+        }
+        else{
+          ganeFila6 += "🟩"
+        }
+        partidas += 1
+        victorias += 1
         stats.click()
       }
       matrizDeJuego += "</br>"
@@ -136,6 +169,8 @@ function enter() {
       letra_actual.columna = 0;
 
       if (letra_actual.fila == 6) {
+        derrotas += "🟥"
+        partidas += 1
         stats.click()
       }
     }
@@ -148,7 +183,10 @@ function enter() {
   }
 }
 
+// limpia el tablero
 function limpiar() {
+  matrizDeJuego = ""
+  palabraAdivinada = false
   if (!(letra_actual.fila == 0 && letra_actual.columna == 0) || letra_actual.columna != 0) {
     while (letra_actual.fila >= 0) {
       if (letra_actual.fila != 0) {
@@ -157,11 +195,9 @@ function limpiar() {
           cuadroId = "cuadro_" + letra_actual.fila + "_" + i
           cuadro = document.getElementById(cuadroId)
           cuadro.style.backgroundColor = "var(--main-bg-color)"
-
           teclaId = "letra" + cuadro.firstChild.innerText
           tecla = document.getElementById(teclaId)
           tecla.style.backgroundColor = "var(--default-key-color)"
-
           cuadro.firstChild.remove()
         }
       }
@@ -170,9 +206,9 @@ function limpiar() {
       }
     }
   }
-
   letra_actual.fila = 0;
   letra_actual.columna = 0;
+  console.log('Se ha limpiado el tablero')
 }
 /**
  * Función que reincia la palabra en juego, el tablero y las estadísticas
@@ -185,6 +221,12 @@ function reiniciar() {
   palabraAdivinada = false
   victorias = 0
   derrotas = 0
+  ganeFila1 = 0
+  ganeFila2 = 0
+  ganeFila3 = 0
+  ganeFila4 = 0
+  ganeFila5 = 0
+  ganeFila6 = 0
   matrizDeJuego = ""
   console.log(palabraActual)
 }
