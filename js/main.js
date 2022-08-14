@@ -16,6 +16,7 @@ let matrizDeJuego = ""
 
 //Se selecciona una palabra aleatoria y se formatea el array en mayúsculas
 numRando = Math.floor(Math.random() * 1000) % 855;
+console.log(numRando)
 listapalabras.forEach((element) => {
   listapalabras[listapalabras.indexOf(element)] = element.toUpperCase()
 });
@@ -39,9 +40,6 @@ function tick() {
 
 function add() {
   tick();
-  // h1.textContent = (hrs > 9 ? hrs : "0" + hrs)
-  //   + ":" + (min > 9 ? min : "0" + min)
-  //   + ":" + (sec > 9 ? sec : "0" + sec);
   timer();
 }
 function timer() {
@@ -50,18 +48,14 @@ function timer() {
     sec = 0;
     min = 0;
     hrs = 0;
-    numRando = Math.floor(Math.random() * 5);
+    numRando = Math.floor(Math.random() * 1000) % 855;
+    palabraActual = listapalabras[numRando]
     console.log(numRando)
+    limpiar()
   }
 }
 
 timer();
-// start.onclick = timer;
-// stop.onclick = function() {
-//     clearTimeout(t);
-// }
-
-// timeNumRando = setTimeout(numRando = Math.floor(Math.random() * 1000) % 855, 1000*60*5);
 
 function ponerLetra(letter) {
   if (letra_actual.fila < 6 && !palabraAdivinada) {
@@ -154,10 +148,7 @@ function enter() {
   }
 }
 
-/**
- * Función que reincia la palabra en juego, el tablero y las estadísticas
- */
-function reiniciar() {
+function limpiar() {
   if (!(letra_actual.fila == 0 && letra_actual.columna == 0) || letra_actual.columna != 0) {
     while (letra_actual.fila >= 0) {
       if (letra_actual.fila != 0) {
@@ -182,7 +173,12 @@ function reiniciar() {
 
   letra_actual.fila = 0;
   letra_actual.columna = 0;
-
+}
+/**
+ * Función que reincia la palabra en juego, el tablero y las estadísticas
+ */
+function reiniciar() {
+  limpiar()
   numRando = Math.floor(Math.random() * 1000) % 855;
 
   palabraActual = listapalabras[numRando]
